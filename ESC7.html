@@ -1,0 +1,59 @@
+
+<!doctype html>
+<html>
+<head>
+<title>Our Funky HTML Page</title>
+<meta name="description" content="Our first page">
+<meta name="keywords" content="html tutorial template">
+<style>
+<style>
+div {
+  
+    overflow: hidden;
+}
+
+div h1 {
+    text-align: center;
+}
+
+div button {
+    float: right;
+    margin-left: -50%;
+}
+</style>
+<script language="javascript">
+
+
+function escape_page() {
+//here we will first set an array of site withc we can use in the function
+var safeSites = [ 
+    "http://amazon.com", 
+
+];
+
+var randSitesArray = randomizeArray(safeSites);
+
+var randSite = randSitesArray[Math.floor(Math.random()*safeSites.length)];
+
+for (var i = 0; i < randSitesArray.length; i++) {
+    // for each array items fill history
+    //History.pushState(null, "Title", randSitesArray[i]);
+    History.replaceState({state:i}, randSitesArray[i], null);
+    History.pushState({state:i}, randSitesArray[i], null); 
+}
+//  redirect to one of the websites witht he randomized array
+//alert(randSite);
+window.location.replace(randSite);
+}
+</script>
+</head>
+
+<body>
+
+<div style="position: absolute; top: 300px; right: 0px; width: 30px;">
+    <input type='image' src="escape.jpg" value="escape" onClick="window.location.replace('http://www.google.com')">
+
+</div>
+</body>
+
+</html>
